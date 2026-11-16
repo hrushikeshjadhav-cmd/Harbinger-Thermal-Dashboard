@@ -174,8 +174,11 @@
   .tool-obc label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 500; color: var(--ink-2); }
   .tool-obc input, .tool-obc select { width: 100%; padding: 12px 14px; background: var(--field); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; font-family: inherit; font-size: 1.25rem; font-weight: 500; font-variant-numeric: tabular-nums; }
   .tool-obc input:focus-visible, .tool-obc select:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; border-color: var(--teal); }
+  .tool-obc input[readonly] { background: transparent; border-style: dashed; cursor: default; }
+  .tool-obc .hint { margin: 10px 0 0; font-size: 0.85rem; font-weight: 500; color: var(--ink-2); }
   .tool-obc .panel { background: var(--panel); border-radius: 12px; padding: 32px; min-width: 0; }
   .tool-obc .panel > h2 { font-size: 1.75rem; margin-bottom: 24px; }
+  .tool-obc #perfPanel > h2, .tool-obc #stackPanel > h2 { font-size: 2.25rem; margin-bottom: 28px; }
   .tool-obc .stack { display: grid; gap: 20px; }
   .tool-obc .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .tool-obc .divider { border-top: 1px solid var(--line); padding-top: 20px; }
@@ -188,12 +191,18 @@
   @media (min-width: 1000px) {
     .tool-obc .grid-2 { grid-template-columns: 1fr 1fr; }
   }
-  .tool-obc .charts3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .tool-obc .charts3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
   .tool-obc .results { background: var(--black); color: var(--white); border: 1px solid rgba(255, 255, 255, 0.22); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
   .tool-obc .results h2 { color: var(--white); font-size: 1.75rem; margin-bottom: 24px; }
-  .tool-obc .view-cap { margin: 0 0 8px; font-size: 0.9rem; font-weight: 500; color: rgba(255, 255, 255, 0.7); }
+  .tool-obc .view-cap { margin: 0 0 8px; font-size: 1rem; font-weight: 700; color: rgba(255, 255, 255, 0.85); }
+  .tool-obc .view-cap small { font-weight: 500; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); }
   .tool-obc .cad-box { border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 8px; padding: 8px; margin-bottom: 20px; background: var(--black); }
   .tool-obc .cad-box svg { width: 100%; display: block; }
+  .tool-obc .elev { display: flex; gap: 8px; align-items: flex-start; }
+  .tool-obc .elev-svg { flex: 1; min-width: 0; }
+  .tool-obc .elev-labels { position: relative; width: 138px; height: 190px; flex: none; }
+  .tool-obc .elev-labels span { position: absolute; left: 0; transform: translateY(-50%); display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 700; color: var(--white); white-space: nowrap; }
+  .tool-obc .elev-labels i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; border: 1px solid rgba(255, 255, 255, 0.5); }
   .tool-obc .readout { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(255, 255, 255, 0.22); }
   .tool-obc .readout:last-of-type { border-bottom: 1px solid rgba(255, 255, 255, 0.22); }
   .tool-obc .readout span:first-child { color: rgba(255, 255, 255, 0.7); font-weight: 500; }
@@ -203,13 +212,13 @@
   .tool-obc .c-grid { stroke: var(--line); stroke-dasharray: 4 3; }
   .tool-obc .c-frame { fill: none; stroke: var(--line); }
   .tool-obc .c-tick { fill: var(--ink-2); font-weight: 500; }
-  .tool-obc .c-axis { fill: var(--ink-2); font-weight: 500; }
+  .tool-obc .c-axis { fill: var(--ink-2); font-weight: 700; }
   .tool-obc .c-title { fill: var(--ink); font-weight: 700; }
   .tool-obc .c-label { fill: var(--ink); font-weight: 700; }
   .tool-obc .c-bar-label { fill: var(--ink); font-weight: 500; }
   .tool-obc svg text { font-family: 'Inter', Arial, sans-serif; }
-  .tool-obc .legend { display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: center; margin-top: 12px; font-size: 0.9rem; font-weight: 500; color: var(--ink); }
-  .tool-obc .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; border: 1px solid var(--line); }
+  .tool-obc .legend { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: center; margin-top: 14px; font-size: 1.05rem; font-weight: 500; color: var(--ink); }
+  .tool-obc .legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; margin-right: 8px; vertical-align: -2px; border: 1px solid var(--line); }
   .tool-obc .msg { border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; font-weight: 500; border: 1px solid currentColor; }
   .tool-obc .msg.warn { color: #8A5E00; background: rgba(242, 169, 0, 0.14); }
   .tool-obc .msg.err { color: #C21F25; background: rgba(255, 90, 95, 0.14); }
@@ -225,6 +234,8 @@
     .tool-obc .panel { padding: 24px 20px; }
     .tool-obc .logo { width: 190px; margin-bottom: 24px; }
     .tool-obc .site-foot { padding: 0 16px 16px; }
+    .tool-obc .elev-labels { width: 118px; }
+    .tool-obc .elev-labels span { font-size: 0.78rem; }
   }
 </style>
 <style>
@@ -546,30 +557,40 @@
       <h2 class="h-display">Geometry</h2>
       <div class="stack">
         <div>
+          <p class="subhead">Plate geometry</p>
+          <div class="pair">
+            <div class="field" data-f="L_mm"></div>
+            <div class="field" data-f="W_mm"></div>
+          </div>
+          <p class="hint">The pin array is limited by the plate: N<sub>T</sub> = ⌊(W − Bypass − D) ÷ S<sub>T</sub>⌋ + 1 and N<sub>L</sub> = ⌊(L − D) ÷ S<sub>L</sub>⌋ + 1.</p>
+        </div>
+        <div class="divider">
           <p class="subhead">Pin array</p>
           <div class="pair">
             <div class="field" data-f="D_mm"></div>
             <div class="field" data-f="H_pin_mm"></div>
             <div class="field" data-f="S_T_mm"></div>
             <div class="field" data-f="S_L_mm"></div>
-          </div>
-        </div>
-        <div class="divider">
-          <p class="subhead">Chamber envelope</p>
-          <div class="pair">
-            <div class="field" data-f="N_T"></div>
-            <div class="field" data-f="L_mm"></div>
             <div class="field" data-f="w_channel_edge_mm"></div>
             <div class="field" data-f="C_mm"></div>
+            <div class="field">
+              <label for="n_t_calc">Columns N<sub>T</sub> (calculated)</label>
+              <input id="n_t_calc" type="text" readonly tabindex="-1">
+            </div>
+            <div class="field">
+              <label for="n_l_calc">Rows N<sub>L</sub> (calculated)</label>
+              <input id="n_l_calc" type="text" readonly tabindex="-1">
+            </div>
           </div>
+          <p class="hint" id="array_hint"></p>
         </div>
       </div>
     </section>
 
-    <!-- CHAMBER VIEW (always black) -->
-    <section class="panel results" aria-label="Chamber view">
+    <!-- COLD PLATE SCHEMATIC (always black) -->
+    <section class="panel results" aria-label="Cold plate schematic">
       <div>
-        <h2 class="h-display">Chamber view</h2>
+        <h2 class="h-display">Cold plate schematic</h2>
         <div id="cadViz"></div>
       </div>
       <div id="cadReadouts"></div>
@@ -762,7 +783,7 @@ function npRound(x) {            // numpy-style round-half-to-even
 class ColdPlateFlow {
   constructor(o) {
     const {
-      D, H_pin, C, S_T, S_L, L, N_T, w_channel_edge, solid, fluid, fet,
+      D, H_pin, C, S_T, S_L, L, W_plate, w_channel_edge, solid, fluid, fet,
       h_ambient, T_ambient_C,
       alpha_bj = 0.25, K_manifold = 6.86,
       d_port_centers = 15.0e-3, h_port_stadium = 3.737e-3,
@@ -772,10 +793,15 @@ class ColdPlateFlow {
 
     Object.assign(this, { D, H_pin, C, S_T, S_L, L, solid, fluid, fet, alpha_bj, K_manifold, h_ambient, T_ambient_C });
     this.H_total = H_pin + C;
-    this.N_L = Math.max(1, npRound(L / S_L));
-    this.W_edge = Math.max(0, w_channel_edge);
-    this.N_T = Math.max(1, Math.trunc(N_T));
+    if (L < D)
+      throw new Error(`Plate length L (${(L * 1e3).toFixed(1)} mm) must be at least the pin diameter D (${(D * 1e3).toFixed(2)} mm).`);
+    if (W_plate < D + w_channel_edge - 1e-5)
+      throw new Error(`Plate width W (${(W_plate * 1e3).toFixed(1)} mm) is too small: it must be at least D + Bypass = ${((D + w_channel_edge) * 1e3).toFixed(2)} mm.`);
+    const tol = 1e-5;                                    // 0.01 mm fit tolerance
+    this.N_L = Math.max(1, Math.floor((L - D + tol) / S_L) + 1);                       // pins that fit along the length
+    this.N_T = Math.max(1, Math.floor((W_plate - w_channel_edge - D + tol) / S_T) + 1); // pins that fit across the width
     this.W_array = (this.N_T - 1) * S_T + D;
+    this.W_edge = Math.max(0, W_plate - this.W_array);   // leftover width becomes bypass (never below the minimum)
     this.W = this.W_array + this.W_edge;
     this.N_pins = this.N_L * this.N_T;
     this.S_D = Math.sqrt(S_L ** 2 + (S_T / 2) ** 2);
@@ -1005,7 +1031,7 @@ function buildColdPlate(s) {
     solid, fluid: FLUID_MATERIALS[s.fluid_key], fet,
     D: s.D_mm * 1e-3, H_pin: s.H_pin_mm * 1e-3, C: s.C_mm * 1e-3,
     S_T: s.S_T_mm * 1e-3, S_L: s.S_L_mm * 1e-3, L: s.L_mm * 1e-3,
-    N_T: s.N_T, w_channel_edge: s.w_channel_edge_mm * 1e-3,
+    W_plate: s.W_mm * 1e-3, w_channel_edge: s.w_channel_edge_mm * 1e-3,
     h_ambient: +s.h_ambient, T_ambient_C: +s.T_ambient_C,
   });
   return { plate, cad: plate.getCadGeometry() };
@@ -1028,7 +1054,7 @@ function evaluateColdPlate(plate, s) {
       R_coldplate_effective_K_W: t.R_coldplate_effective_K_W, R_system_total_K_W: total,
     },
     stackup: { labels, values, percentages: values.map(x => x / total * 100), total_K_W: total,
-               x_max: (Math.max(...values) > 0 ? Math.max(...values) : 0.1) * 1.35 },
+               x_max: (Math.max(...values) > 0 ? Math.max(...values) : 0.1) * 1.75 },
     sweep,
   };
 }
@@ -1039,8 +1065,8 @@ function evaluateColdPlate(plate, s) {
 const DEFAULT_STATE = {
   flow_rate_lpm: 10.0, q_total_W: 660.0, T_inlet_C: 55.0, T_ambient_C: 55.0, h_ambient: 5.0,
   fluid_key: "weg5050", material_preset: "copper", k_solid: 398.0, t_base_mm: 2.0,
-  N_fets: 8, Rth_jc: 0.1900, Rth_tgp: 0.7931, N_T: 10, w_channel_edge_mm: 3.142,
-  L_mm: 123.0, D_mm: 1.5, H_pin_mm: 8.8, C_mm: 0.20, S_T_mm: 3.8, S_L_mm: 3.8,
+  N_fets: 8, Rth_jc: 0.1900, Rth_tgp: 0.7931, w_channel_edge_mm: 3.142,
+  L_mm: 123.0, W_mm: 38.842, D_mm: 1.5, H_pin_mm: 8.8, C_mm: 0.20, S_T_mm: 3.8, S_L_mm: 3.8,
 };
 // key: [label, min, max, step, decimals]
 const FIELDS = {
@@ -1058,9 +1084,9 @@ const FIELDS = {
   H_pin_mm: ["Height H [mm]", 1, 30, 0.2, 2],
   S_T_mm: ["Pitch S<sub>T</sub> [mm]", 0.8, 12, 0.1, 2],
   S_L_mm: ["Pitch S<sub>L</sub> [mm]", 0.8, 12, 0.1, 2],
-  N_T: ["Columns N<sub>T</sub>", 2, 40, 1, 0],
   L_mm: ["Length L [mm]", 30, 400, 1, 1],
-  w_channel_edge_mm: ["Bypass [mm]", 0, 25, 0.1, 3],
+  W_mm: ["Width W [mm]", 10, 200, 1, 2],
+  w_channel_edge_mm: ["Min. bypass [mm]", 0, 25, 0.1, 3],
   C_mm: ["Tip gap C [mm]", 0, 5, 0.05, 2],
 };
 
@@ -1138,37 +1164,37 @@ function frame(W, H, m, o, fs) {
   const pw = W - m.l - m.r, ph = H - m.t - m.b;
   const sx = x => m.l + (x - o.xmin) / (o.xmax - o.xmin) * pw;
   const sy = y => m.t + (1 - (y - o.ymin) / (o.ymax - o.ymin)) * ph;
-  const xt = niceTicks(o.xmin, o.xmax, 6), yt = niceTicks(o.ymin, o.ymax, 5);
+  const xt = niceTicks(o.xmin, o.xmax, 5), yt = niceTicks(o.ymin, o.ymax, 5);
   let s = `<rect class="c-plot" x="${m.l}" y="${m.t}" width="${pw}" height="${ph}" rx="4"/>`;
   yt.forEach(v => { s += `<line class="c-grid" x1="${m.l}" x2="${m.l + pw}" y1="${sy(v)}" y2="${sy(v)}"/>
-    <text class="c-tick" x="${m.l - 8}" y="${sy(v) + 4}" text-anchor="end" font-size="${fs}">${tickFmt(v, yt.step)}</text>`; });
+    <text class="c-tick" x="${m.l - 8}" y="${sy(v) + fs * 0.35}" text-anchor="end" font-size="${fs}">${tickFmt(v, yt.step)}</text>`; });
   xt.forEach(v => { s += `<line class="c-grid" y1="${m.t}" y2="${m.t + ph}" x1="${sx(v)}" x2="${sx(v)}"/>
-    <text class="c-tick" x="${sx(v)}" y="${m.t + ph + 18}" text-anchor="middle" font-size="${fs}">${tickFmt(v, xt.step)}</text>`; });
+    <text class="c-tick" x="${sx(v)}" y="${m.t + ph + fs + 6}" text-anchor="middle" font-size="${fs}">${tickFmt(v, xt.step)}</text>`; });
   s += `<rect class="c-frame" x="${m.l}" y="${m.t}" width="${pw}" height="${ph}" rx="4"/>`;
-  s += `<text class="c-title" x="${m.l + pw / 2}" y="${m.t - 16}" text-anchor="middle" font-size="${fs + 3}">${esc(o.title)}</text>`;
-  s += `<text class="c-axis" x="${m.l + pw / 2}" y="${H - 10}" text-anchor="middle" font-size="${fs + 0.5}">${esc(o.xlabel)}</text>`;
-  s += `<text class="c-axis" transform="translate(16 ${m.t + ph / 2}) rotate(-90)" text-anchor="middle" font-size="${fs + 0.5}">${esc(o.ylabel)}</text>`;
+  s += `<text class="c-title" x="${m.l + pw / 2}" y="${m.t - 20}" text-anchor="middle" font-size="${fs + 6}">${esc(o.title)}</text>`;
+  s += `<text class="c-axis" x="${m.l + pw / 2}" y="${H - 10}" text-anchor="middle" font-size="${fs + 1.5}">${esc(o.xlabel)}</text>`;
+  s += `<text class="c-axis" transform="translate(20 ${m.t + ph / 2}) rotate(-90)" text-anchor="middle" font-size="${fs + 1.5}">${esc(o.ylabel)}</text>`;
   return { s, sx, sy, pw, ph };
 }
 
 function lineChart(o) {
-  const W = 480, H = 340, m = { l: 66, r: 16, t: 46, b: 52 };
-  const f = frame(W, H, m, o, 12), id = "clip" + uid++;
+  const W = 420, H = 340, m = { l: 76, r: 18, t: 62, b: 62 }, fs = 14;
+  const f = frame(W, H, m, o, fs), id = "clip" + uid++;
   const pts = o.xs.map((x, i) => `${f.sx(x).toFixed(2)},${f.sy(o.ys[i]).toFixed(2)}`);
   const area = `M${f.sx(o.xs[0])},${f.sy(o.ymin)} L${pts.join(" L")} L${f.sx(o.xs[o.xs.length - 1])},${f.sy(o.ymin)} Z`;
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.title)}"><defs><clipPath id="${id}"><rect x="${m.l}" y="${m.t}" width="${f.pw}" height="${f.ph}"/></clipPath></defs>`;
   s += f.s;
-  s += `<g clip-path="url(#${id})"><path d="${area}" style="fill:${o.color}" opacity=".15"/><polyline points="${pts.join(" ")}" fill="none" style="stroke:${o.color}" stroke-width="2.75" stroke-linejoin="round"/></g>`;
+  s += `<g clip-path="url(#${id})"><path d="${area}" style="fill:${o.color}" opacity=".15"/><polyline points="${pts.join(" ")}" fill="none" style="stroke:${o.color}" stroke-width="3" stroke-linejoin="round"/></g>`;
   const px = f.sx(o.px), py = f.sy(o.py);
-  const anchor = px > W - m.r - 60 ? "end" : px < m.l + 60 ? "start" : "middle";
-  s += `<circle cx="${px}" cy="${py}" r="6.5" style="fill:var(--teal);stroke:var(--ink)" stroke-width="2"/>
-        <text class="c-label" x="${px}" y="${py - 14}" text-anchor="${anchor}" font-size="13">${esc(o.plabel)}</text></svg>`;
+  const anchor = px > W - m.r - 70 ? "end" : px < m.l + 70 ? "start" : "middle";
+  s += `<circle cx="${px}" cy="${py}" r="7" style="fill:var(--teal);stroke:var(--ink)" stroke-width="2"/>
+        <text class="c-label" x="${px}" y="${py - 14}" text-anchor="${anchor}" font-size="16">${esc(o.plabel)}</text></svg>`;
   return s;
 }
 
 function stackChart(o, sweep, series, colors, flow) {
-  const W = 640, H = 400, m = { l: 70, r: 18, t: 46, b: 52 };
-  const f = frame(W, H, m, o, 12), id = "clip" + uid++;
+  const W = 640, H = 430, m = { l: 84, r: 20, t: 62, b: 62 }, fs = 15;
+  const f = frame(W, H, m, o, fs), id = "clip" + uid++;
   const n = sweep.lpm_sweep.length, cum = [new Array(n).fill(0)];
   series.forEach((sr, k) => cum.push(cum[k].map((v, i) => v + sr[i])));
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.title)}"><defs><clipPath id="${id}"><rect x="${m.l}" y="${m.t}" width="${f.pw}" height="${f.ph}"/></clipPath></defs>${f.s}<g clip-path="url(#${id})">`;
@@ -1177,33 +1203,33 @@ function stackChart(o, sweep, series, colors, flow) {
     const bot = sweep.lpm_sweep.map((x, i) => `${f.sx(x).toFixed(2)},${f.sy(cum[k][i]).toFixed(2)}`).reverse();
     s += `<polygon points="${top.join(" ")} ${bot.join(" ")}" style="fill:${colors[k]};stroke:var(--field)" stroke-width=".8"/>`;
   });
-  s += `<line x1="${f.sx(flow)}" x2="${f.sx(flow)}" y1="${m.t}" y2="${m.t + f.ph}" style="stroke:var(--hot)" stroke-width="2" stroke-dasharray="6 4"/></g></svg>`;
+  s += `<line x1="${f.sx(flow)}" x2="${f.sx(flow)}" y1="${m.t}" y2="${m.t + f.ph}" style="stroke:var(--hot)" stroke-width="2.5" stroke-dasharray="6 4"/></g></svg>`;
   return s;
 }
 
 function barChart(st, flow, colors) {
-  const W = 640, H = 400, m = { l: 140, r: 24, t: 46, b: 52 };
+  const W = 640, H = 430, m = { l: 190, r: 20, t: 62, b: 62 };
   const title = `System resistance @ ${flow.toFixed(1)} LPM`;
-  const pw = W - m.l - m.r, ph = H - m.t - m.b, fs = 12;
+  const pw = W - m.l - m.r, ph = H - m.t - m.b, fs = 15;
   const sx = x => m.l + x / st.x_max * pw;
-  const xt = niceTicks(0, st.x_max, 6);
+  const xt = niceTicks(0, st.x_max, 5);
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}"><rect class="c-plot" x="${m.l}" y="${m.t}" width="${pw}" height="${ph}" rx="4"/>`;
   xt.forEach(v => { s += `<line class="c-grid" x1="${sx(v)}" x2="${sx(v)}" y1="${m.t}" y2="${m.t + ph}"/>
-    <text class="c-tick" x="${sx(v)}" y="${m.t + ph + 18}" text-anchor="middle" font-size="${fs}">${tickFmt(v, xt.step)}</text>`; });
+    <text class="c-tick" x="${sx(v)}" y="${m.t + ph + fs + 6}" text-anchor="middle" font-size="${fs}">${tickFmt(v, xt.step)}</text>`; });
   const band = ph / st.labels.length, bh = band * 0.62;
   st.labels.forEach((lab, i) => {
     const cy = m.t + band * (i + 0.5), w = sx(st.values[i]) - m.l;
     s += `<rect x="${m.l}" y="${cy - bh / 2}" width="${Math.max(0, w)}" height="${bh}" rx="3" style="fill:${colors[i]};stroke:var(--line)"/>
-      <text class="c-bar-label" x="${m.l - 10}" y="${cy + 4}" text-anchor="end" font-size="${fs + 1}">${lab}</text>
-      <text class="c-bar-label" x="${m.l + w + 8}" y="${cy + 4}" font-size="${fs}">${st.values[i].toFixed(4)} K/W (${st.percentages[i].toFixed(1)}%)</text>`;
+      <text class="c-bar-label" x="${m.l - 10}" y="${cy + 5}" text-anchor="end" font-size="${fs + 1}">${lab}</text>
+      <text class="c-bar-label" x="${m.l + w + 8}" y="${cy + 5}" font-size="${fs - 1}">${st.values[i].toFixed(4)} K/W (${st.percentages[i].toFixed(1)}%)</text>`;
   });
   s += `<rect class="c-frame" x="${m.l}" y="${m.t}" width="${pw}" height="${ph}" rx="4"/>
-    <text class="c-title" x="${m.l + pw / 2}" y="${m.t - 16}" text-anchor="middle" font-size="${fs + 3}">${esc(title)}</text>
-    <text class="c-axis" x="${m.l + pw / 2}" y="${H - 10}" text-anchor="middle" font-size="${fs + 0.5}">Thermal resistance [K/W]</text></svg>`;
+    <text class="c-title" x="${m.l + pw / 2}" y="${m.t - 20}" text-anchor="middle" font-size="${fs + 6}">${esc(title)}</text>
+    <text class="c-axis" x="${m.l + pw / 2}" y="${H - 10}" text-anchor="middle" font-size="${fs + 1.5}">Thermal resistance [K/W]</text></svg>`;
   return s;
 }
 
-/* ---- CAD views (drawn on the black panel) ---- */
+/* ---- Cold plate schematic (drawn on the black panel, with dimension labels) ---- */
 function pinPath(centers, r) {
   const d = [], r2 = 2 * r;
   for (const [x, y] of centers)
@@ -1216,30 +1242,84 @@ function cadViews(cad, preset, k) {
   const pinFill = isCu ? "#F59E0B" : "#E9E8E5", baseFill = isCu ? "#B45309" : "#6B6B6B";
   const { L_mm: L, W_mm: W, w_side_mm: ws, w_array_mm: wa, D_mm: D } = cad;
   const Y = y => W - y;
+  const DIM = "rgba(255,255,255,.9)", EXT = "rgba(255,255,255,.45)";
 
-  /* platform (top-down) view */
-  const vx = -L * 0.06, vw = L * 1.09, vy = -W * 0.08, vh = W * 1.16;
-  let top = `<svg viewBox="${vx} ${vy} ${vw} ${vh}" role="img" aria-label="Platform view">
+  /* ---- planform with dimensions ---- */
+  const fs = L * 0.05, tfs = fs * 0.85, a = fs * 0.5;
+  const vx = -L * 0.13, vy = -fs * 2.6;
+  const vw = L * 0.13 + L + fs * 3.9, vh = fs * 2.6 + W + fs * 3.9;
+  let top = `<svg viewBox="${vx} ${vy} ${vw} ${vh}" role="img" aria-label="Plate platform view with dimensions">
     <rect x="0" y="0" width="${L}" height="${W}" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.55)" stroke-width="1.4" vector-effect="non-scaling-stroke"/>`;
   if (ws > 0.01) {
-    top += `<rect x="0" y="${Y(ws)}" width="${L}" height="${ws}" fill="#FF5A5F" opacity=".32"/>
-            <rect x="0" y="0" width="${L}" height="${ws}" fill="#FF5A5F" opacity=".32"/>`;
-    if (ws >= 1.2) {
-      const fs = Math.min(ws * 0.7, L * 0.03);
-      top += `<text x="${L / 2}" y="${Y(ws / 2) + fs * 0.35}" font-size="${fs}" fill="#FFB3B5" font-weight="700" text-anchor="middle">Bypass</text>
-              <text x="${L / 2}" y="${ws / 2 + fs * 0.35}" font-size="${fs}" fill="#FFB3B5" font-weight="700" text-anchor="middle">Bypass</text>`;
-    }
+    top += `<rect x="0" y="${Y(ws)}" width="${L}" height="${ws}" fill="#FF5A5F" opacity=".4"/>
+            <rect x="0" y="0" width="${L}" height="${ws}" fill="#FF5A5F" opacity=".4"/>
+            <line x1="${L / 2}" y1="${-fs * 0.45}" x2="${L / 2}" y2="${ws / 2}" stroke="#FFB3B5" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <text x="${L / 2}" y="${-fs * 0.7}" font-size="${tfs}" fill="#FFB3B5" font-weight="700" text-anchor="middle">Bypass ${ws.toFixed(2)} mm per side</text>`;
   }
   top += `<rect x="0" y="${Y(ws + wa)}" width="${L}" height="${wa}" fill="none" stroke="#86C4D0" stroke-width=".9" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/>`;
   if (cad.pin_centers_top.length) {
     const centers = cad.pin_centers_top.map(([x, y]) => [x, Y(y)]);
     top += `<path d="${pinPath(centers, D / 2)}" fill="${pinFill}" stroke="rgba(0,0,0,.6)" stroke-width=".35" vector-effect="non-scaling-stroke"/>`;
   }
-  const ax0 = -L * 0.045, ax1 = L * 0.04, ay = W / 2, hh = Math.min(W * 0.09, 3.5), hl = L * 0.018;
-  top += `<line x1="${ax0}" y1="${ay}" x2="${ax1 - hl}" y2="${ay}" stroke="#86C4D0" stroke-width="2.2" vector-effect="non-scaling-stroke"/>
-          <polygon points="${ax1},${ay} ${ax1 - hl},${ay - hh} ${ax1 - hl},${ay + hh}" fill="#86C4D0"/></svg>`;
+  /* flow arrow + label */
+  const ax0 = -L * 0.115, ax1 = L * 0.035, ay = W / 2, hh = Math.min(W * 0.09, 3.5), hl = L * 0.018;
+  top += `<line x1="${ax0}" y1="${ay}" x2="${ax1 - hl}" y2="${ay}" stroke="#86C4D0" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
+          <polygon points="${ax1},${ay} ${ax1 - hl},${ay - hh} ${ax1 - hl},${ay + hh}" fill="#86C4D0"/>
+          <text x="${(ax0 + 0) / 2}" y="${ay - hh - fs * 0.35}" font-size="${tfs}" fill="#86C4D0" font-weight="700" text-anchor="middle">Flow</text>`;
+  /* L dimension (below) */
+  const yd = W + fs * 1.4;
+  top += `<line x1="0" y1="${W}" x2="0" y2="${yd + fs * 0.3}" stroke="${EXT}" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="${L}" y1="${W}" x2="${L}" y2="${yd + fs * 0.3}" stroke="${EXT}" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="0" y1="${yd}" x2="${L}" y2="${yd}" stroke="${DIM}" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+          <polygon points="0,${yd} ${a},${yd - a / 2} ${a},${yd + a / 2}" fill="${DIM}"/>
+          <polygon points="${L},${yd} ${L - a},${yd - a / 2} ${L - a},${yd + a / 2}" fill="${DIM}"/>
+          <text x="${L / 2}" y="${yd + fs * 1.35}" font-size="${tfs}" fill="#fff" font-weight="700" text-anchor="middle">L = ${L.toFixed(1)} mm</text>`;
+  /* W dimension (right) */
+  const xd = L + fs * 1.4, xt = xd + fs * 1.5;
+  top += `<line x1="${L}" y1="0" x2="${xd + fs * 0.3}" y2="0" stroke="${EXT}" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="${L}" y1="${W}" x2="${xd + fs * 0.3}" y2="${W}" stroke="${EXT}" stroke-width="1" vector-effect="non-scaling-stroke"/>
+          <line x1="${xd}" y1="0" x2="${xd}" y2="${W}" stroke="${DIM}" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+          <polygon points="${xd},0 ${xd - a / 2},${a} ${xd + a / 2},${a}" fill="${DIM}"/>
+          <polygon points="${xd},${W} ${xd - a / 2},${W - a} ${xd + a / 2},${W - a}" fill="${DIM}"/>
+          <text transform="rotate(-90 ${xt} ${W / 2})" x="${xt}" y="${W / 2}" font-size="${tfs}" fill="#fff" font-weight="700" text-anchor="middle">W = ${W.toFixed(1)} mm</text></svg>`;
 
-  /* elevation */
+  /* ---- pin detail (to scale, staggered) ---- */
+  const D_ = cad.D_mm, ST = cad.S_T_mm, SL = cad.S_L_mm;
+  const sc = Math.min(250 / (2 * SL + D_), 100 / (1.5 * ST + D_));
+  const r = D_ * sc / 2, ox = 112 + r, oy = 34 + r;
+  const cx = i => ox + i * SL * sc;
+  const cy = (i, j) => oy + j * ST * sc + (i % 2 ? ST * sc / 2 : 0);
+  const yb = oy + 1.5 * ST * sc + r + 20;
+  const PH = yb + 34;
+  let detail = `<svg viewBox="0 0 400 ${PH.toFixed(1)}" role="img" aria-label="Pin array detail with pitch and diameter labels">
+    <text x="${ox - r}" y="16" font-size="14" fill="#86C4D0" font-weight="700">Flow</text>
+    <line x1="${ox - r + 40}" y1="12" x2="${ox - r + 84}" y2="12" stroke="#86C4D0" stroke-width="2.2"/>
+    <polygon points="${ox - r + 92},12 ${ox - r + 82},7 ${ox - r + 82},17" fill="#86C4D0"/>`;
+  for (let i = 0; i < 3; i++) for (let j = 0; j < 2; j++)
+    detail += `<circle cx="${cx(i).toFixed(1)}" cy="${cy(i, j).toFixed(1)}" r="${r.toFixed(1)}" fill="${pinFill}" stroke="rgba(0,0,0,.6)"/>`;
+  /* S_T (vertical, left of first column) */
+  const xs = cx(0) - r - 24;
+  detail += `<line x1="${cx(0) - r - 4}" y1="${cy(0, 0)}" x2="${xs - 6}" y2="${cy(0, 0)}" stroke="${EXT}"/>
+    <line x1="${cx(0) - r - 4}" y1="${cy(0, 1)}" x2="${xs - 6}" y2="${cy(0, 1)}" stroke="${EXT}"/>
+    <line x1="${xs}" y1="${cy(0, 0)}" x2="${xs}" y2="${cy(0, 1)}" stroke="${DIM}" stroke-width="1.5"/>
+    <polygon points="${xs},${cy(0, 0)} ${xs - 4},${cy(0, 0) + 8} ${xs + 4},${cy(0, 0) + 8}" fill="${DIM}"/>
+    <polygon points="${xs},${cy(0, 1)} ${xs - 4},${cy(0, 1) - 8} ${xs + 4},${cy(0, 1) - 8}" fill="${DIM}"/>
+    <text x="${xs - 9}" y="${((cy(0, 0) + cy(0, 1)) / 2 - 3).toFixed(1)}" font-size="14" fill="#fff" font-weight="700" text-anchor="end">S<tspan font-size="10" dy="3">T</tspan><tspan dy="-3"> = ${ST.toFixed(2)}</tspan></text>`;
+  /* S_L (horizontal, below) */
+  detail += `<line x1="${cx(0)}" y1="${cy(0, 1) + r + 2}" x2="${cx(0)}" y2="${yb + 6}" stroke="${EXT}" stroke-dasharray="3 3"/>
+    <line x1="${cx(1)}" y1="${cy(1, 1) + r + 2}" x2="${cx(1)}" y2="${yb + 6}" stroke="${EXT}" stroke-dasharray="3 3"/>
+    <line x1="${cx(0)}" y1="${yb}" x2="${cx(1)}" y2="${yb}" stroke="${DIM}" stroke-width="1.5"/>
+    <polygon points="${cx(0)},${yb} ${cx(0) + 8},${yb - 4} ${cx(0) + 8},${yb + 4}" fill="${DIM}"/>
+    <polygon points="${cx(1)},${yb} ${cx(1) - 8},${yb - 4} ${cx(1) - 8},${yb + 4}" fill="${DIM}"/>
+    <text x="${((cx(0) + cx(1)) / 2).toFixed(1)}" y="${yb + 22}" font-size="14" fill="#fff" font-weight="700" text-anchor="middle">S<tspan font-size="10" dy="3">L</tspan><tspan dy="-3"> = ${SL.toFixed(2)} mm</tspan></text>`;
+  /* D callout (right of last column) */
+  const dx = cx(2) + r + 14;
+  detail += `<line x1="${cx(2) + r * 0.7}" y1="${cy(2, 0) - r * 0.7}" x2="${dx}" y2="${cy(2, 0) - r * 0.7 - 12}" stroke="#fff"/>
+    <text x="${dx + 4}" y="${cy(2, 0) - r * 0.7 - 10}" font-size="14" fill="#fff" font-weight="700">D = ${D_.toFixed(2)} mm</text>`;
+  /* array note */
+  detail += `<text x="${dx + 4}" y="${(cy(2, 1) + 6).toFixed(1)}" font-size="13" fill="rgba(255,255,255,.7)" font-weight="500">Staggered array</text></svg>`;
+
+  /* ---- elevation with layer labels ---- */
   const th = cad.total_h_mm, ex = -L * 0.06, ew = L * 1.09, ey = -(th + 0.8), eh = th + 1.1;
   let side = `<svg viewBox="${ex} ${ey} ${ew} ${eh}" preserveAspectRatio="none" style="height:190px" role="img" aria-label="Elevation cross-section">
     <rect x="0" y="${-(cad.t_base_mm + cad.H_pin_mm)}" width="${L}" height="${cad.H_pin_mm}" fill="#0E8AA3" opacity=".4"/>
@@ -1252,12 +1332,19 @@ function cadViews(cad, preset, k) {
     side += `<path d="${d}" fill="${pinFill}" stroke="rgba(0,0,0,.6)" stroke-width=".25" vector-effect="non-scaling-stroke"/>`;
   }
   side += `</svg>`;
+  const fr = y => ((y - ey) / eh * 100).toFixed(1);
+  const elevLabels = `<div class="elev-labels">
+      <span style="top:${fr(-th + cad.C_mm / 2)}%"><i style="background:#86C4D0"></i>Tip gap C = ${cad.C_mm.toFixed(2)}</span>
+      <span style="top:${fr(-(cad.t_base_mm + cad.H_pin_mm / 2))}%"><i style="background:${pinFill}"></i>Pin H = ${cad.H_pin_mm.toFixed(2)}</span>
+      <span style="top:${fr(-cad.t_base_mm / 2)}%"><i style="background:${baseFill}"></i>Base t = ${cad.t_base_mm.toFixed(2)}</span>
+    </div>`;
 
   return {
-    views: `<p class="view-cap">Platform</p><div class="cad-box">${top}</div>
-            <p class="view-cap">Elevation</p><div class="cad-box" style="margin-bottom:0">${side}</div>`,
+    views: `<p class="view-cap">Platform <small>(top view, mm)</small></p><div class="cad-box">${top}</div>
+            <p class="view-cap">Pin array detail <small>(to scale)</small></p><div class="cad-box">${detail}</div>
+            <p class="view-cap">Elevation <small>(side view, height exaggerated, mm)</small></p><div class="cad-box" style="margin-bottom:0"><div class="elev"><div class="elev-svg">${side}</div>${elevLabels}</div></div>`,
     readouts: `<div class="readout"><span>Pin array (N<sub>T</sub> × N<sub>L</sub>)</span><span>${cad.N_T} × ${cad.N_L} = ${cad.N_pins}</span></div>
-               <div class="readout"><span>Chamber W × L [mm]</span><span>${W.toFixed(1)} × ${L.toFixed(0)}</span></div>
+               <div class="readout"><span>Plate W × L [mm]</span><span>${W.toFixed(1)} × ${L.toFixed(0)}</span></div>
                <div class="readout"><span>t<sub>base</sub> / H / C [mm]</span><span>${cad.t_base_mm.toFixed(1)} / ${cad.H_pin_mm.toFixed(1)} / ${cad.C_mm.toFixed(2)}</span></div>`,
   };
 }
@@ -1275,14 +1362,19 @@ function render() {
   const perfPanel = document.getElementById("perfPanel"), stackPanel = document.getElementById("stackPanel");
   msgs.innerHTML = "";
 
+  const ntEl = document.getElementById("n_t_calc"), nlEl = document.getElementById("n_l_calc"), hintEl = document.getElementById("array_hint");
+
   let built;
   try { built = buildColdPlate(state); }
   catch (e) {
     cadEl.innerHTML = ""; cadRead.innerHTML = "";
+    ntEl.value = nlEl.value = "–"; hintEl.textContent = "";
     perfPanel.style.display = stackPanel.style.display = "none";
     msgs.innerHTML = `<div class="msg warn">Geometry / flow constraint: ${esc(e.message)}</div>`;
     return;
   }
+  ntEl.value = built.cad.N_T; nlEl.value = built.cad.N_L;
+  hintEl.textContent = `${built.cad.N_T} × ${built.cad.N_L} = ${built.cad.N_pins} pins fit · effective bypass ${built.cad.w_edge_mm.toFixed(2)} mm (${(built.cad.w_edge_mm / 2).toFixed(2)} mm per side)`;
   const cv = cadViews(built.cad, state.material_preset, state.k_solid);
   cadEl.innerHTML = cv.views; cadRead.innerHTML = cv.readouts;
 
@@ -1340,7 +1432,7 @@ window.ObcTool = {
     if (key === 'fluid_key') { state.fluid_key = value; syncInputs(); schedule(); return { value: value }; }
     const min = FIELDS[key][1], max = FIELDS[key][2];
     let v = Number(value);
-    if (key === 'N_fets' || key === 'N_T') v = Math.round(v);
+    if (key === 'N_fets') v = Math.round(v);
     const c = clamp(v, min, max);
     state[key] = c; syncInputs(); schedule();
     return { value: c, clamped: c !== v, min: min, max: max };
@@ -1546,9 +1638,9 @@ window.ObcTool = {
     ['H_pin_mm', 'pin height', 'mm', /(?:pin\s*height|height|\bh\b)/],
     ['S_T_mm', 'transverse pitch', 'mm', /(?:(?:transverse\s*)?pitch\s*s?_?t\b|\bs_?t\b|transverse\s*pitch)/],
     ['S_L_mm', 'longitudinal pitch', 'mm', /(?:(?:longitudinal\s*)?pitch\s*s?_?l\b|\bs_?l\b|longitudinal\s*pitch)/],
-    ['N_T', 'columns', '', /(?:columns?|\bnt\b|n_t)/],
-    ['L_mm', 'chamber length', 'mm', /(?:length|\bl\b)/],
-    ['w_channel_edge_mm', 'bypass width', 'mm', /(?:bypass(?:\s*width)?|edge\s*gap)/],
+    ['L_mm', 'plate length', 'mm', /(?:length|\bl\b)/],
+    ['W_mm', 'plate width', 'mm', /(?:plate\s*width|(?<!bypass\s)width)/],
+    ['w_channel_edge_mm', 'minimum bypass', 'mm', /(?:bypass(?:\s*width)?|edge\s*gap)/],
     ['C_mm', 'tip gap', 'mm', /(?:tip\s*(?:gap|clearance)|clearance|\bc\b)/],
     ['Rth_jc', 'R_θJC', 'K/W', /(?:r_?th_?jc|rth\s*jc|r_?jc|junction[- ]to[- ]case)/],
     ['Rth_tgp', 'gap pad resistance', 'K/W', /(?:gap\s*pad|rth_?tgp)/],
@@ -1734,7 +1826,7 @@ window.ObcTool = {
     [/(pressure drop|\bdp\b|manifold|\bports?\b)/, '**Pressure drop** is split into the pin array and the inlet/outlet ports. At typical flows the ports often dominate, so changing the pins mostly affects the thermal side.'],
     [/(stack ?up|base conduction|fin convection|fluid cal|calorimetric|constriction|spreading)/, 'The stackup splits cold plate resistance into **base conduction**, **fin convection**, **fluid caloric rise** (coolant warming up), **3D constriction** (heat spreading from each FET footprint) and the **FET package** (R_θJC + gap pad).'],
     [/(kink|bump|wiggle|15 ?lpm|reynolds|regime)/, 'The small kink near 15 LPM is where the correlations switch regime (Reynolds number around 1000). It comes from the model, not from the page.'],
-    [/(platform|planform|chamber view|elevation)/, 'The **Chamber view** shows a top-down **Platform** view of the pin array (bypass strips in red, flow arrow in teal) and an **Elevation** cross-section of the base, pins and tip gap.'],
+    [/(platform|planform|schematic|chamber view|elevation)/, 'The **Cold plate schematic** shows a labelled top-down **Platform** view (L, W, bypass strips and flow direction), a to-scale **Pin array detail** (D, S_T, S_L) and an **Elevation** cross-section of the base, pins and tip gap.'],
     [/(v2g|bi-?directional|\bobc\b|on-?board charger)/, 'An **on-board charger (OBC)** converts grid AC to battery DC. A bi-directional OBC can also send power back (V2G), and in both directions the FETs make heat that the cold plate has to remove.'],
     [/(cooling mode|liquid cold plate|ambient air)/, '**Ambient air** adds the heat-sink resistance R_θSA and uses air temperature as the reference. **Liquid cold plate** drops R_θSA and uses the plate surface temperature instead.'],
     [/(tip (?:gap|clearance))/, 'The **tip gap** is the clearance above the pins. Flow through it bypasses the pins, so smaller gaps improve cooling but need tighter tolerances.'],
